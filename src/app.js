@@ -36,10 +36,10 @@ class RandomQuoteMachine extends React.Component {
 
   render() {
     return (
-      <div id="box">
-        <div>
+      <div class="row" id="quote-box">
+        <div id="quote-text">
           <p>{this.state.quoteText}</p>
-          <p>- {this.state.quoteAuthor}</p>
+          <p id="quote-author">- {this.state.quoteAuthor}</p>
         </div>
         <div>
           <div id="sm_links">
