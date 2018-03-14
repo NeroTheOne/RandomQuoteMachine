@@ -15,17 +15,20 @@ class RandomQuoteMachine extends React.Component {
 
   fetchData() {
     console.log('fetchData')
-    axios.get('http://quotes.rest/qod.json?category=inspire')
+    axios.get('https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous&count=10', {
+      headers: {
+        'X-Mashape-Key': 'a7MW36eCHMmshwdxbxgPvyiPKrxXp1zoTFIjsnJz9Q5UQLRWJ9',
+        'Accept': 'application/json'
+      }
+    })
     .then((res) => {
-      console.log(res);
-      let quoteText = res.data.contents.quotes[0].quote;
-      let quoteAuthor = res.data.contents.quotes[0].author;
+      console.log('success\n', res);
+      let quoteText = res.data.quote;
+      let quoteAuthor = res.data.author;
       this.setState(() => ({
         quoteText,
         quoteAuthor
       }));
-      console.log('quoteText:', this.state.quoteText);
-      console.log('quoteAuthor:', this.state.quoteAuthor);
     }, (error) => {
       console.log(error);
     });
@@ -37,7 +40,7 @@ class RandomQuoteMachine extends React.Component {
         <div id="quote">{this.state.quoteText}</div>
         <div>
           <div id="sm_links"></div>
-          <button>Next quote</button>
+          <button onClick={this.fetchData}>Next quote</button>
         </div>
       </div>
     );
