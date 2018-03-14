@@ -37,7 +37,10 @@ class RandomQuoteMachine extends React.Component {
   render() {
     return (
       <div id="box">
-        <div id="quote">{this.state.quoteText}</div>
+        <div>
+          <p>{this.state.quoteText}</p>
+          <p>- {this.state.quoteAuthor}</p>
+        </div>
         <div>
           <div id="sm_links"></div>
           <button onClick={this.fetchData}>Next quote</button>
