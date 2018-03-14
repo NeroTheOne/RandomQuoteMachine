@@ -42,7 +42,10 @@ class RandomQuoteMachine extends React.Component {
           <p>- {this.state.quoteAuthor}</p>
         </div>
         <div>
-          <div id="sm_links"></div>
+          <div id="sm_links">
+            <i class="ion-social-facebook-outline"></i>
+            <i class="ion-social-twitter-outline"></i>
+          </div>
           <button onClick={this.fetchData}>Next quote</button>
         </div>
       </div>
