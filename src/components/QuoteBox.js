@@ -10,18 +10,14 @@ import Next from './Next';
 export default class QuoteBox extends React.Component {
   constructor(props) {
     super(props);
-    console.log('CONSTRUCTOR!');
     this.state = {
       quoteText: undefined,
       quoteAuthor: undefined
     };
-    this.getRandomColor = this.getRandomColor.bind(this);
-    this.fetchData = this.fetchData.bind(this);
-    this.getURL = this.getURL.bind(this);
     this.fetchData();
   }
 
-  getRandomColor() {
+  getRandomColor = () => {
     console.log('fired randomColor');
     let colors = [
       'rgb(26, 188, 156)', 'rgb(241, 196, 15)',
@@ -33,7 +29,7 @@ export default class QuoteBox extends React.Component {
     return colors[rand];
   }
 
-  getURL(website) {
+  getURL = (website) => {
     if (website == 'fb') {
       // api link to post
     } else if (website == 't') {
@@ -43,7 +39,7 @@ export default class QuoteBox extends React.Component {
     }
   }
 
-  fetchData() {
+  fetchData = () => {
     console.log('fetchData')
     axios.get('https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous&count=10', {
       headers: {
