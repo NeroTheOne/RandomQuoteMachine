@@ -1,11 +1,12 @@
 import React from 'react';
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
+
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Quote from './Quote';
 import Author from './Author';
 import IconLinks from './IconLinks';
 import Next from './Next';
-
 
 export default class QuoteBox extends React.Component {
   constructor(props) {
@@ -63,8 +64,8 @@ export default class QuoteBox extends React.Component {
   render() {
     return (
       <div className="quote-box">
-        <Quote quoteText={this.state.quoteText}/>
-        <Author quoteAuthor={this.state.quoteAuthor}/>
+          <Quote quoteText={this.state.quoteText}/>
+          <Author quoteAuthor={this.state.quoteAuthor}/>
         <div className="quote-box__footer">
           <IconLinks getURL={this.getURL}/>
           <Next fetchData={this.fetchData}/>
@@ -73,6 +74,46 @@ export default class QuoteBox extends React.Component {
     );
   };
 }
+
+// export default class QuoteBox extends React.Component {
+//   constructor(props) {
+//      super(props);
+//
+//      this.state = {
+//         items: ['Item 1...', 'Item 2...', 'Item 3...', 'Item 4...']
+//      }
+//      this.handleAdd = this.handleAdd.bind(this);
+//   };
+//   handleAdd() {
+//      var newItems = this.state.items.concat([prompt('Create New Item')]);
+//      this.setState({items: newItems});
+//   }
+//   handleRemove(i) {
+//      var newItems = this.state.items.slice();
+//      newItems.splice(i, 1);
+//      this.setState({items: newItems});
+//   }
+//   render() {
+//      var items = this.state.items.map(function(item, i) {
+//         return (
+//            <div key = {item} onClick = {this.handleRemove.bind(this, i)}>
+//               {item}
+//            </div>
+//         );
+//      }.bind(this));
+//
+//      return (
+//         <div>
+//            <button onClick = {this.handleAdd}>Add Item</button>
+//
+//            <ReactCSSTransitionGroup transitionName = "examples"
+//               transitionEnterTimeout = {500} transitionLeaveTimeout = {500}>
+//               <Quote quoteText={"SUUUP!"}/>
+//            </ReactCSSTransitionGroup>
+//         </div>
+//      );
+//   }
+// }
 
 // <div class="container"
 //         style={
